@@ -46,7 +46,7 @@
 /*The folowing globally defined functions are required to service*/
 /*the debug assert macros.*/
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-VOID RelMessage(CHAR *pPrintfFormat,CHAR *pCondition,CHAR *pFilename,INT lineNum,INT nExitCode);
+VOID RelMessage(const CHAR *pPrintfFormat,const CHAR *pCondition,const CHAR *pFilename,INT lineNum,INT nExitCode);
 VOID RelFail(INT nExitCode);
 #if DEBUGLEVEL>=1
 #ifdef __cplusplus
@@ -54,14 +54,14 @@ VOID RelFail(INT nExitCode);
     {
 #endif
 #if defined(DLL_BUILD)
-    typedef VOID (* FuncDevMessage)(char *pPrintfFormat,char *pCondition,char *pFilename,int lineNum,int nExitCode);
+    typedef VOID (* FuncDevMessage)(const char *pPrintfFormat, const char *pCondition, const char *pFilename,int lineNum,int nExitCode);
     typedef VOID (* FuncDevFail)(int nExitCode);
     typedef VOID (* FuncDevTrace)(const char* pcPrintfFormat, ...);
     extern FuncDevMessage DevMessage;
     extern FuncDevFail    DevFail;
     extern FuncDevTrace   DevTrace;
 #else
-    VOID DevMessage(CHAR *pPrintfFormat,CHAR *pCondition,CHAR *pFilename,INT lineNum,INT nExitCode);
+    VOID DevMessage(const CHAR *pPrintfFormat,const CHAR *pCondition, const CHAR *pFilename,INT lineNum,INT nExitCode);
     VOID DevFail(INT nExitCode);
     VOID DevTrace(CONST CHAR* pcPrintfFormat, ...);
 #endif

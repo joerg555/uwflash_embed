@@ -28,7 +28,7 @@
 
 #if !defined(BASETYPE_H)     /* prevent multiple inclusions */
 #define BASETYPE_H
-
+#include <stdio.h>
 
 /******************************************************************************/
 /* Include Files*/
@@ -64,15 +64,22 @@ WARNING:
 #define EXTERN                  extern
 #define VOLATILE                volatile
 
-#if defined(__cplusplus)
-#   if !defined(__BCPLUSPLUS__)
-#       define TRUE                 true
-#       define FALSE                false
-#   endif
-#else
+#ifndef TRUE
 #   define TRUE                 1
+#endif
+#ifndef FALSE
 #   define FALSE                0
 #endif
+
+//#if defined(__cplusplus)
+//#   if !defined(__BCPLUSPLUS__)
+//#       define TRUE                 true
+//#       define FALSE                false
+//#   endif
+//#else
+//#   define TRUE                 1
+//#   define FALSE                0
+//#endif
 
 #if !defined(NULL)
 #define NULL                    ((void*) 0)
@@ -99,14 +106,19 @@ typedef unsigned char               UCHAR;
 typedef unsigned int                UINT;
 typedef float                       FLOAT;
 typedef double                      DOUBLE;
-#if defined(__cplusplus)
-#   if !defined(__BCPLUSPLUS__)
-    typedef bool                    BOOL;
-#   endif
-#else
-#   define BOOL                    unsigned char
-#   define bool                    unsigned char
+
+#ifndef BOOL
+#define BOOL int
 #endif
+
+//#if defined(__cplusplus)
+//#   if !defined(__BCPLUSPLUS__)
+//    typedef bool                    BOOL;
+//#   endif
+//#else
+//#   define BOOL                    unsigned char
+//#   define bool                    unsigned char
+//#endif
 
 #if !defined(VOID)
 #   define VOID                    void

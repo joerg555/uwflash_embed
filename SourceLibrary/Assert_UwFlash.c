@@ -94,9 +94,9 @@ UI16 DisplayAssertMessage(char *pMsg);
 /*============================================================================*/
 VOID
 RelMessage(
-    CHAR *pPrintfFormat,
-    CHAR *pCondition,
-    CHAR *pFilename,
+    const CHAR *pPrintfFormat,
+    const CHAR *pCondition,
+    const CHAR *pFilename,
     INT lineNum,
     INT nExitCode
     )
@@ -138,9 +138,9 @@ RelFail(
 /*============================================================================*/
 VOID
 DevMessage(
-    CHAR *pPrintfFormat,
-    CHAR *pCondition,
-    CHAR *pFilename,
+    const CHAR *pPrintfFormat,
+    const CHAR *pCondition,
+    const CHAR *pFilename,
     INT lineNum,
     INT nExitCode
     )

@@ -194,7 +194,7 @@ public:
     void  FlushRxBuffer(void);
     void  FlushTxBuffer(void);
     void  FlushRxTx(void);
-    void  SendString(char *pCmd);
+	void  SendString(const char *pCmd);
     void  SendBlock(unsigned char *pTxBlock, unsigned short nLen);
     void  InitFlashDevice(SFlashDevice *pFlashDevice);
     void  DeleteFlashDevice(SFlashDevice *pFlashDevice);

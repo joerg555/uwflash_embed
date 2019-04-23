@@ -100,6 +100,13 @@ TSerialPortBase *GetSerialPort(TSerialOnRxData *pOnRxData)
     return gpSerialPort;
 }
 
+void DeleteSerialPort(TSerialPortBase *pComPort)
+{
+	delete pComPort;
+	if (pComPort == gpSerialPort)
+		gpSerialPort = NULL;
+}
+
 /*=============================================================================*/
 /*=============================================================================*/
 void PollSerialRxData()

@@ -212,13 +212,13 @@ TSerialPortTarget::ComOpen(
                 }
                 catch (EBadId*)
                 {
-                    delete mApdComPort;
+                    DeleteSerialPort(mApdComPort);;
                     mApdComPort = NULL;
                     fRetVal = false;
                 }
                 catch(...)
                 {
-                    delete mApdComPort;
+                    DeleteSerialPort(mApdComPort);;
                     mApdComPort = NULL;
                     fRetVal = false;
                 }
@@ -226,7 +226,7 @@ TSerialPortTarget::ComOpen(
 #if defined(CHECKPORT)
             else
             {
-                delete mApdComPort;
+                DeleteSerialPort(mApdComPort);;
                 mApdComPort = NULL;
                 fRetVal = false;
             }

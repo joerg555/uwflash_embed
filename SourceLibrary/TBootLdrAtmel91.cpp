@@ -261,7 +261,7 @@ void TBootLdrAtmel91::ComClose()
     {
         mApdComPort->Close();
         if( gAtConfig.mfVirtualPort)MiscSleep(PORT_OPEN_CLOSE_DELAY_MS);
-        delete mApdComPort;
+		DeleteSerialPort(mApdComPort);
         mApdComPort = NULL;
     }
 }
@@ -309,7 +309,7 @@ bool TBootLdrAtmel91::ComOpen(char *pComName,
 #if defined(CHECKPORT)
         if( ! fRetVal )
         {
-            delete mApdComPort;
+            DeleteSerialPort(mApdComPort);;
             mApdComPort = NULL;
             fRetVal = false;
         }
@@ -380,7 +380,7 @@ bool TBootLdrAtmel91::ComOpenPollWait(char *pComName,int nBaudrate,int nParity, 
 #if defined(CHECKPORT)
             if( ! fRetVal )
             {
-                delete mApdComPort;
+                DeleteSerialPort(mApdComPort);;
                 mApdComPort = NULL;
                 fRetVal = false;
             }
@@ -468,7 +468,7 @@ void TBootLdrAtmel91::FlushRxTx(void)
 
 //=============================================================================
 //=============================================================================
-void TBootLdrAtmel91::SendString(char *pCmd)
+void TBootLdrAtmel91::SendString(const char *pCmd)
 {
     if(mApdComPort)
     {

@@ -115,7 +115,7 @@ public:
 
     virtual BOOLEAN IsOpen()=0;
     virtual VOID Close()=0;
-    virtual bool ComOpen(char *pDevName,int nBaudrate,int nParity, int nStopBits, int nDataBits)=0;
+    virtual bool ComOpen(const char *pDevName,int nBaudrate,int nParity, int nStopBits, int nDataBits)=0;
     virtual void SetBreak(void)=0;
     virtual void ClearBreak(void)=0;
     virtual void FlushRxBuffer(void)=0;
@@ -131,7 +131,7 @@ public:
     virtual void DeassertRTS(void);
 
     /* Functions to read and write from underlying buffers */
-    virtual void PutString(char *pTxStr);
+    virtual void PutString(const char *pTxStr);
     virtual unsigned PutBlock(unsigned char *pTxBlock, unsigned short nLen)=0;
     virtual unsigned GetBlock(char *pDest, unsigned nCount)=0;
 
@@ -154,6 +154,7 @@ public:
 // Global Functions (API etc) exported for other modules
 /******************************************************************************/
 TSerialPortBase *GetSerialPort(TSerialOnRxData *pOnRxData);
+void DeleteSerialPort(TSerialPortBase *pComPort);
 
 /*
   In the following routine, do a ovelapped read of the serial port and

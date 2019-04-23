@@ -143,7 +143,7 @@ void AtConfig::SerialPortNameSet(int nComNum)
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-void AtConfig::SerialPortNameSet(char *pName)
+void AtConfig::SerialPortNameSet(const char *pName)
 {
     strncpy(mbaSerialPortName,pName,MAX_SERIAL_PORT_NAMELEN);
     mbaSerialPortName[MAX_SERIAL_PORT_NAMELEN]=0;

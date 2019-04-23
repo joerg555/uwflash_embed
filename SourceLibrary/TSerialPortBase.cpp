@@ -148,11 +148,11 @@ void TSerialPortBase::DeassertRTS(void)
 //=============================================================================
 void
 TSerialPortBase::PutString(
-    char *pTxStr
+    const char *pTxStr
     )
 {
-    unsigned short nLen = strlen(pTxStr);
-    PutBlock(pTxStr,nLen);
+    unsigned short nLen = (unsigned short)strlen(pTxStr);
+    PutBlock((unsigned char *)pTxStr,nLen);
 }
 
 

@@ -20,6 +20,7 @@ Buildlog.htm
 WindowsExample/target/*.zip
 WindowsExample/obj/UwFlashCon.*
 WindowsExample/target/*.tds
-
-
+/VisualStudio/.vs/
+/VisualStudio/Debug/
+/VisualStudio/Release/
 

@@ -79,7 +79,7 @@ BlrPubCloseCPP(
     VOID *pBlrContext
     );
 
-bool
+BOOL
 BlrPubCheckPlatformCPP(
     VOID *pBlrContext,
     UI32  nPlatform

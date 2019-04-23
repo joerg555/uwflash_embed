@@ -244,7 +244,7 @@ BlrPubCloseCPP(
 ** on
 */
 /*=============================================================================*/
-extern "C" bool
+extern "C" BOOL
 BlrPubCheckPlatformCPP(
     VOID *pBlrContext,
     UI32  nPlatform

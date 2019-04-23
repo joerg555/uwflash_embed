@@ -39,7 +39,7 @@
 // Defines
 /******************************************************************************/
 
-#define MAX_SERIAL_PORT_NAMELEN             24
+#define MAX_SERIAL_PORT_NAMELEN             256
 #define PORT_OPEN_CLOSE_DELAY_MS            1000
 #define MAX_TESTDATA_LEN                    64
 
@@ -60,6 +60,8 @@ typedef enum
 }
 UPGRADE_FILETYPE;
 
+// Problem with #ifdef and enum
+
 typedef enum
 {
     TARGET_BT900                    = 0
@@ -75,7 +77,20 @@ typedef enum
    ,TARGET_PREPROCESS_MASK          = 0x8000
    ,TARGET_UNKNOWN                  = 0xFFFF
 }
-ETargetType;
+ETargetTypeOld;
+
+#define TARGET_BT900	0
+#define TARGET_BL6XX	1			/* Any BL6xx based hardware with new bootloader */
+#define TARGET_RM1XX	2			/* LoRa - Central BLE Role */
+#define TARGET_BL65X	3			/* Any BL65x based hardware*/
+#define TARGET_BL654X	4			/* Any BL654x based hardware*/
+#define TARGET_RM1XX_PE	5			/* LoRa - Peripheral BLE Role */
+#define TARGET_BL600	6
+#define TARGET_BL620	7
+#define TARGET_PREPROCESS_MASK  0x8000
+#define TARGET_UNKNOWN  0xFFFF
+
+typedef unsigned ETargetType;
 
 /******************************************************************************/
 // Simple (non struct/union) Typedefs
@@ -140,7 +155,7 @@ public:
     void SerialPortNameGet(int *pNum);
     void SerialPortNameGet(char **ppName);
     void SerialPortNameSet(int nComNum);
-    void SerialPortNameSet(char *pName);
+    void SerialPortNameSet(const char *pName);
 
 };
 

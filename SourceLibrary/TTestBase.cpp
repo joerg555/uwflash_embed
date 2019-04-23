@@ -288,7 +288,7 @@ void TTestBase::ComClose()
     {
         mApdComPort->Close();
         if( gAtConfig.mfVirtualPort)MiscSleep(PORT_OPEN_CLOSE_DELAY_MS);
-        delete mApdComPort;
+        DeleteSerialPort(mApdComPort);;
         mApdComPort = NULL;
     }
 }
@@ -312,7 +312,7 @@ bool TTestBase::ComOpen(char *pComName,int nBaudrate,int nParity, int nStopBits,
 #if defined(CHECKPORT)
         if( ! fRetVal )
         {
-            delete mApdComPort;
+            DeleteSerialPort(mApdComPort);;
             mApdComPort = NULL;
             fRetVal = false;
         }
